@@ -7,7 +7,7 @@ Projekt grupowy aplikacji na system operacyjny Android.
     się projekt (np. _~/AndroidStudioProjects_)
   - pobrać repozytorium komendą
     ```
-       git clone 'git@github.com:MordechajWeiss/mobilne.git'
+    git clone 'git@github.com:MordechajWeiss/mobilne.git'
     ```
     zostanie utworzony podfolder *mobilne*, będący repozytorium
   - w Android Studio wybrać opcję 'Open an Existing Project'
