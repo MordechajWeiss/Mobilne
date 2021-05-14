@@ -1,5 +1,6 @@
 package com.example.mobilne
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 
-class CustomAdapter(private var data: Vector<GameItem>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -35,14 +38,14 @@ class CustomAdapter(private var data: Vector<GameItem>) : RecyclerView.Adapter<C
             view.setOnClickListener{
                 //view.context
                 //Toast.makeText(view.context,"position" + layoutPosition, Toast.LENGTH_SHORT ).show()
-                data[layoutPosition].desc="Cezar"
-                notifyDataSetChanged()
+                //data[layoutPosition].desc="Cezar"
+                //notifyDataSetChanged()
 
 
                 //val myintent = Intent(view.context,GameActivity1::class.java)
                 //view.context.startActivity(myintent)
-                openActivity(data[layoutPosition].id,view.context)
-
+                openActivity(data[layoutPosition].id)
+               // startActivityForResult(mContext,"123")
             }
 
         }
@@ -75,28 +78,39 @@ class CustomAdapter(private var data: Vector<GameItem>) : RecyclerView.Adapter<C
 
      holder.textViewName.text = data.get(position).name
      holder.textViewDesc.text = data.get(position).desc
+
+
+
+
+
      }
 
     override fun getItemCount(): Int {
         return data.size;
     }
 
-    public fun openActivity(id: Int, context: Context){
+    public fun openActivity(id: Int){
         when(id){
             1 -> {
-                val myintent = Intent(context,GameActivity1::class.java)
-                context.startActivity(myintent)
+                val myintent = Intent(mContext,GameActivity1::class.java)
+                myintent.putExtra("name1",data[id].desc)
+                //mContext.startActivity(myintent)
+                //mContext.startActivityForResult(myintent,"12")
+                //context.startAc
+                val activity = mContext as Activity
+                startActivityForResult( activity,myintent,123,null)
+
             }
             2 -> {
-                val myintent = Intent(context,GameActivity2::class.java)
-                context.startActivity(myintent)
+                val myintent = Intent(mContext,GameActivity2::class.java)
+                mContext.startActivity(myintent)
             }
             3 -> {
-                val myintent = Intent(context,GameActivity3::class.java)
-                context.startActivity(myintent)
+                val myintent = Intent(mContext,GameActivity3::class.java)
+                mContext.startActivity(myintent)
             }
             else -> {
-                Toast.makeText(context,"position" + id, Toast.LENGTH_SHORT ).show()
+                Toast.makeText(mContext,"position" + id, Toast.LENGTH_SHORT ).show()
             }
 
         }
