@@ -7,39 +7,72 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        app:backgroundTint="@color/white"
-        android:textColor="#FFF"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42000002" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/outlinedButton1"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:onClick="click1"
+        android:text="Games"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintVertical_bias="0.42000002"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/outlinedButton2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:onClick="click2"
+        android:text="Your history"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/outlinedButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedButton1"
+        app:layout_constraintVertical_bias="0.5"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/outlinedButton3"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="click3"
+        android:text="Online data"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedButton1"
+        app:layout_constraintVertical_bias="0.25"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kalam_bold"
+        android:text="Select game"
+        android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.13" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
