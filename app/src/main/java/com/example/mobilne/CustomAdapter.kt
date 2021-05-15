@@ -92,7 +92,7 @@ class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : 
     public fun openActivity(id: Int){
         when(id){
             1 -> {
-                val myintent = Intent(mContext,GameActivity1::class.java)
+                val myintent = Intent(mContext, GameActivity1::class.java)  //fixed error with unrecognised reference: java
                 myintent.putExtra("name1",data[id].desc)
                 //mContext.startActivity(myintent)
                 //mContext.startActivityForResult(myintent,"12")
