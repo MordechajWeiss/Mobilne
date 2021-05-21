@@ -33,7 +33,13 @@ class GamesListActivity : AppCompatActivity() {
 
     fun generateData() : Vector<GameItem>{
         var data : Vector<GameItem> = Vector();
-        for (i in 0..100){
+
+        data.addElement(GameItem(0, "xoxo", "XOXO testowy do bazy danych"),)
+        data.addElement(GameItem(1, "gra1", "specjalny opis gry 1"),)
+        data.addElement(GameItem(2, "gra2", "wyspecjalizowany opis gry 2"),)
+        data.addElement(GameItem(3, "gra3", "zwyczajne opisanie gry 3"),)
+
+        for (i in 4..100){
             data.addElement(GameItem(i, "name - $i", "Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. $i"),)
         }
         return data
@@ -46,12 +52,5 @@ class GamesListActivity : AppCompatActivity() {
     }
 
 
-    fun a() {
-        //val myintent = Intent(this,GameActivity1::class.java)
-        //myintent.putExtra("name1",data[id].desc)
-        //mContext.startActivity(myintent)
-        //mContext.startActivityForResult(myintent,"12")
-        //context.startAc
-        //ActivityCompat.startActivityForResult(this, myintent, 123)
-    }
+
 }

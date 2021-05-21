@@ -62,6 +62,9 @@ class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : 
 
         val line = data.get(position)
         when(line.id){
+            0 -> {
+            holder.picView.setImageResource(R.drawable.xoxogame)
+             }
             1 -> {
                 holder.picView.setImageResource(R.drawable.g1)
             }
@@ -91,6 +94,11 @@ class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : 
 
     public fun openActivity(id: Int){
         when(id){
+            0 ->{
+                val myintent = Intent(mContext,SimpleXOXO::class.java)
+                mContext.startActivity(myintent)
+
+            }
             1 -> {
                 val myintent = Intent(mContext, GameActivity1::class.java)  //fixed error with unrecognised reference: java
                 myintent.putExtra("name1",data[id].desc)
