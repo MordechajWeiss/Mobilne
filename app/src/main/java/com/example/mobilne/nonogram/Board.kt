@@ -1,8 +1,8 @@
 package com.example.mobilne.nonogram
 
 class Board /* : GridLayout */ {
-
-    private Tile[][] tiles /*= new Tile[][];*/
+/*
+    private /Tile[][] tiles /*= new Tile[][];*/
     private Boolean[][] answerKey
     private String[] tempKey = [
         "...xxxx...",
@@ -29,5 +29,5 @@ class Board /* : GridLayout */ {
         /* WORK IN PROGRESS */
         /*     (spanko)     */
 
-    }
+    }*/
 }

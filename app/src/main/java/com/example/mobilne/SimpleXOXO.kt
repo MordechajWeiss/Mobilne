@@ -3,6 +3,7 @@ package com.example.mobilne
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
@@ -16,23 +17,186 @@ class SimpleXOXO : AppCompatActivity() {
     private var won = false
     private var winner = "Z"
     private lateinit var database : SimpleXOXODatabase
+    private var move = 0
+    private lateinit var list : List<SimpleXOXOEnt>
+    private lateinit var savedGame : SimpleXOXOEnt
+    var flag = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_x_o_x_o)
 
-
-
-
-        try {
-            database = Room.databaseBuilder(
-                this,
-                SimpleXOXODatabase::class.java,
-                "SimpleXOXOtable.db"
-            ).build()
-        }catch (e: Exception){
-
+        GlobalScope.launch {
+            try {
+                database = Room.databaseBuilder(
+                    applicationContext,
+                    SimpleXOXODatabase::class.java,
+                    "SimpleXOXOtable.db"
+                ).build()
+            }catch (e: Exception){
+                Log.d("am2021","base")
+                finish()
+            }
+            list = database.SimpleXOXOEntDAO().getAll()
+            if(list.isNotEmpty()){
+                savedGame = database.SimpleXOXOEntDAO().getLast()
+            }
+            flag=false;
         }
+
+        //while(flag){
+         //   Log.d("am2021","wait")
+
+        //}
+        Thread.sleep(1000)
+
+        if(list.isNotEmpty()){
+            var x=0;
+            var y=0;
+            var s = savedGame.board.toString()
+            Log.d("am2021", "savedGame: $s")
+
+
+
+            if(s[0] != '_'){
+                move++
+
+                if(s[0] == 'X'){
+                    board.set(0,1)
+                    x++
+                    findViewById<ImageButton>(R.id.imageButton).setImageResource(R.drawable.xoxo1)
+                }
+                else{
+                    board.set(0,0)
+                    y++
+                    findViewById<ImageButton>(R.id.imageButton).setImageResource(R.drawable.xoxo2)
+                }
+            }
+
+            if(s[1] != '_'){
+                move++
+
+                if(s[1] == 'X'){
+                    board.set(1,1)
+                    x++
+                    findViewById<ImageButton>(R.id.imageButton2).setImageResource(R.drawable.xoxo1)
+                }
+                else{
+                    board.set(1,0)
+                    y++
+                    findViewById<ImageButton>(R.id.imageButton2).setImageResource(R.drawable.xoxo2)
+                }
+            }
+
+            if(s[2] != '_'){
+                move++
+                if(s[2] == 'X'){
+                    board.set(2,1)
+                    x++
+                    findViewById<ImageButton>(R.id.imageButton3).setImageResource(R.drawable.xoxo1)
+                }
+                else{
+                    board.set(2,0)
+                    y++
+                    findViewById<ImageButton>(R.id.imageButton3).setImageResource(R.drawable.xoxo2)
+                }
+            }
+
+            if(s[3] != '_'){
+                move++
+                if(s[3] == 'X'){
+                    findViewById<ImageButton>(R.id.imageButton4).setImageResource(R.drawable.xoxo1)
+                    board.set(3,1)
+                    x++
+                }
+                else{
+                    findViewById<ImageButton>(R.id.imageButton4).setImageResource(R.drawable.xoxo2)
+                    board.set(3,0)
+                    y++
+                }
+            }
+
+            if(s[4] != '_'){
+                move++
+                if(s[4] == 'X'){
+                    findViewById<ImageButton>(R.id.imageButton5).setImageResource(R.drawable.xoxo1)
+                    board.set(4,1)
+                    x++
+                }
+                else{
+                    findViewById<ImageButton>(R.id.imageButton5).setImageResource(R.drawable.xoxo2)
+                    board.set(4,0)
+                    y++
+                }
+            }
+
+            if(s[5] != '_'){
+                move++
+                if(s[5] == 'X'){
+                    findViewById<ImageButton>(R.id.imageButton6).setImageResource(R.drawable.xoxo1)
+                    board.set(5,1)
+                    x++
+                }
+                else{
+                    findViewById<ImageButton>(R.id.imageButton6).setImageResource(R.drawable.xoxo2)
+                    board.set(5,0)
+                    y++
+                }
+            }
+
+            if(s[6] != '_'){
+                move++
+                if(s[6] == 'X'){
+                    findViewById<ImageButton>(R.id.imageButton7).setImageResource(R.drawable.xoxo1)
+                    board.set(6,1)
+                    x++
+                }
+                else{
+                    findViewById<ImageButton>(R.id.imageButton7).setImageResource(R.drawable.xoxo2)
+                    board.set(6,0)
+                    y++
+                }
+            }
+
+            if(s[7] != '_'){
+                move++
+                if(s[7] == 'X'){
+                    findViewById<ImageButton>(R.id.imageButton8).setImageResource(R.drawable.xoxo1)
+                    board.set(7,1)
+                    x++
+                }
+                else{
+                    findViewById<ImageButton>(R.id.imageButton8).setImageResource(R.drawable.xoxo2)
+                    board.set(7,0)
+                    y++
+                }
+            }
+
+            if(s[8] != '_'){
+                move++
+                if(s[8] == 'X'){
+                    findViewById<ImageButton>(R.id.imageButton9).setImageResource(R.drawable.xoxo1)
+                    board.set(8,1)
+                    x++
+                }
+                else{
+                    findViewById<ImageButton>(R.id.imageButton9).setImageResource(R.drawable.xoxo2)
+                    board.set(8,0)
+                    y++
+                }
+            }
+
+
+            if(x>y){
+                current_player="O"
+            }
+        }
+
+
+
+
+
+
 
     }
 
@@ -202,14 +366,39 @@ class SimpleXOXO : AppCompatActivity() {
 
 
     fun sendWinner(view: View) {
-        if(won){
-            changePlayer()
-            val myintent = Intent()
-            myintent.putExtra("msgR",current_player)
-            setResult(RESULT_OK,myintent)
-        }
 
-        finish()
+
+        GlobalScope.launch {
+            try {
+                database = Room.databaseBuilder(
+                    applicationContext,
+                    SimpleXOXODatabase::class.java,
+                    "SimpleXOXOtable.db"
+                ).build()
+            }catch (e: Exception){
+                Log.d("am2021","base")
+                finish()
+            }
+
+            database.SimpleXOXOEntDAO().delete()
+            move=0;
+
+            for (i in 0..8){
+                board[i] = 2
+            }
+            findViewById<ImageButton>(R.id.imageButton).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton2).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton3).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton4).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton5).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton6).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton7).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton8).setImageResource(R.drawable.xoxo3)
+            findViewById<ImageButton>(R.id.imageButton9).setImageResource(R.drawable.xoxo3)
+
+
+
+        }
     }
 
     fun checkWinner(){
@@ -252,6 +441,7 @@ class SimpleXOXO : AppCompatActivity() {
 
 
     fun changePlayer(){
+
         if(current_player == "X"){
             checkWinner()
             current_player = "O"
@@ -260,5 +450,35 @@ class SimpleXOXO : AppCompatActivity() {
             checkWinner()
             current_player = "X"
         }
+
+        GlobalScope.launch {
+            try {
+                database = Room.databaseBuilder(
+                    applicationContext,
+                    SimpleXOXODatabase::class.java,
+                    "SimpleXOXOtable.db"
+                ).build()
+            }catch (e: Exception){
+                Log.d("am2021","base")
+                finish()
+            }
+            var s = ""
+
+            for (i in 0..8){
+                if(board.get(i)==2)
+                    s += "_"
+                if(board.get(i)==1)
+                    s += "X"
+                if(board.get(i)==0)
+                    s += "O"
+            }
+
+            database.SimpleXOXOEntDAO().insertAll(SimpleXOXOEnt(move.toLong(),s))
+            move++
+
+        }
+        //database.SimpleXOXOEntDAO().insertAll(SimpleXOXOEnt(move.toLong(),"XXXOOO"))
+
+
     }
 }

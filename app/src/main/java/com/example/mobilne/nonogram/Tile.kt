@@ -3,7 +3,7 @@ package com.example.mobilne.nonogram
 import android.widget.ImageView
 
 // Klasa reprezentująca pojedyncze pole nonogramu
-class Tile(Board motherboard) : ImageView {
+class Tile(/*Board motherboard*/) /*: ImageView*/ {/*
 
     // publiczny interfejs do określania stanu pola
     public /*static*/ enum class State { UNSET, FULL, DOT }
@@ -29,6 +29,6 @@ class Tile(Board motherboard) : ImageView {
         this.state++
         motherboard.checkCorrectness()
 
-    }
+    }*/
 
 }

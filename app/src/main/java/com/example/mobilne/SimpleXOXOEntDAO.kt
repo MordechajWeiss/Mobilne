@@ -14,4 +14,7 @@ interface SimpleXOXOEntDAO {
 
     @Query("select * from simpleXOXOtable")
     fun getAll() : List<SimpleXOXOEnt>
+
+    @Query("select * from simplexoxotable order by id DESC limit 1")
+    fun getLast() : SimpleXOXOEnt
 }

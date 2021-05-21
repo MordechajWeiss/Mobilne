@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(myintent)
     }
     fun click2(view: View) {
-        Toast.makeText(this, "History clicked", Toast.LENGTH_SHORT).show()
+        val myintent = Intent(this,LocalHistory::class.java)
+        startActivity(myintent)
     }
     fun click3(view: View) {
         Toast.makeText(this, "Online clicked", Toast.LENGTH_SHORT).show()
