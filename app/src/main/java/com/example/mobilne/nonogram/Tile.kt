@@ -1,4 +1,4 @@
-package com.example.mobilne.nonogram
+/*package com.example.mobilne.nonogram
 
 import android.widget.ImageView
 
@@ -32,3 +32,5 @@ class Tile(/*Board motherboard*/) /*: ImageView*/ {/*
     }*/
 
 }
+
+ */
