@@ -1,4 +1,4 @@
-package com.example.mobilne.nonogram
+/*package com.example.mobilne.nonogram
 
 class Board /* : GridLayout */ {
 
@@ -31,3 +31,4 @@ class Board /* : GridLayout */ {
 
     }
 }
+*/
