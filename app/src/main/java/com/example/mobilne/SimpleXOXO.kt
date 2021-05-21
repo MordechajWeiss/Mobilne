@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.room.Room
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -21,10 +25,13 @@ class SimpleXOXO : AppCompatActivity() {
     private lateinit var list : List<SimpleXOXOEnt>
     private lateinit var savedGame : SimpleXOXOEnt
     var flag = true
+    private lateinit var firebase: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_x_o_x_o)
+
+        firebase = Firebase.database.reference
 
         GlobalScope.launch {
             try {
@@ -193,7 +200,22 @@ class SimpleXOXO : AppCompatActivity() {
         }
 
 
+        var a1 : String
+        firebase.child("xoxoCount").get().addOnSuccessListener{
+            Log.i("klawiatur", "Got value ${it.value}")
+            a1 = "${it.value}"
+            //a1= it.value as String
+            //findViewById<TextView>(com.google.firebase.database.R.id.textViewZ).text = (a1.toInt()+1).toString()
+            //increaseNOP(a1.toInt())
+            //postPost(findViewById<TextView>(com.google.firebase.database.R.id.inputText).text.toString(),a1.toInt())
+            //findViewById<TextView>(com.google.firebase.database.R.id.inputText).text = ""
+            a1 = (a1.toInt() + 1).toString()
 
+            firebase.child("xoxoCount").setValue(a1.toString())
+
+        }.addOnFailureListener{
+            Log.e("klawiatur", "Error getting data", it)
+        }
 
 
 

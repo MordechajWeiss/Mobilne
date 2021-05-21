@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.room.Room
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -13,6 +19,7 @@ class LocalHistory : AppCompatActivity() {
 
     private lateinit var database : SimpleXOXODatabase
     private lateinit var list : List<SimpleXOXOEnt>
+    var TAG = "2021"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +41,29 @@ class LocalHistory : AppCompatActivity() {
         }
 
         Thread.sleep(1000)
+
+
+        val firebase = Firebase.database
+        val myRef = firebase.getReference("xoxoCount")
+        //myRef.setValue(1)
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val value = dataSnapshot.getValue<String>()
+                findViewById<TextView>(R.id.firebaseXOXOCount).text = value.toString()
+                //Log.d(TAG, "Value is: $value")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+
+
         for (i in 0..list.size-1){
             var s = list.get(i).board.toString()
 
