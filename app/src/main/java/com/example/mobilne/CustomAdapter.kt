@@ -110,7 +110,7 @@ class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : 
 
             }
             2 -> {
-                val myintent = Intent(mContext,GameActivity2::class.java)
+                val myintent = Intent(mContext,OnlinexoxoMenu::class.java)
                 mContext.startActivity(myintent)
             }
             3 -> {

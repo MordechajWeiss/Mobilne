@@ -35,8 +35,8 @@ class GamesListActivity : AppCompatActivity() {
         var data : Vector<GameItem> = Vector();
 
         data.addElement(GameItem(0, "xoxo", "XOXO testowy do bazy danych"),)
-        data.addElement(GameItem(1, "gra1", "specjalny opis gry 1"),)
-        data.addElement(GameItem(2, "gra2", "wyspecjalizowany opis gry 2"),)
+        data.addElement(GameItem(1, "gra1", "wyspecjalizowany opis gry 2"),)
+        data.addElement(GameItem(2, "gra2", "XOXO online"),)
         data.addElement(GameItem(3, "gra3", "zwyczajne opisanie gry 3"),)
 
         for (i in 4..100){
