@@ -32,11 +32,12 @@ class OnlinexoxoMenu : AppCompatActivity() {
             Log.i("klawiatur", "Inside $a1")
             a1 = (a1.toInt()+1).toString()
             firebase.child("xoxoOnline").child("counter").setValue(a1)
-            firebase.child("xoxoOnline").child(a1).child("1").setValue("Start")
+            firebase.child("xoxoOnline").child(a1).child("1").setValue("_________")
             firebase.child("xoxoOnline").child(a1).child("Flag").setValue("X")
             Log.i("klawiatur", "After $a1")
             val myintent = Intent(this,OnlineXOXOGame::class.java)
             myintent.putExtra("gameid",a1)
+            myintent.putExtra("playerChar","X")
             startActivity(myintent)
 
         }.addOnFailureListener{
@@ -53,6 +54,7 @@ class OnlinexoxoMenu : AppCompatActivity() {
 
         val myintent = Intent(this,OnlineXOXOGame::class.java)
         myintent.putExtra("gameid",idInput)
+        myintent.putExtra("playerChar","O")
         startActivity(myintent)
     }
 }
