@@ -12,6 +12,7 @@
         <activity android:name=".OnlineXOXOGame"></activity>
         <activity android:name=".OnlinexoxoMenu" />
         <activity android:name=".LocalHistory" />
+        <activity android:name=".ChooseHistory" />
         <activity android:name=".SimpleXOXO" />
         <activity android:name=".GameActivity3" />
         <activity android:name=".GameActivity2" />

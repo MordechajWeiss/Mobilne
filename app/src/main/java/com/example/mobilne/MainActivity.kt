@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(myintent)
     }
     fun click2(view: View) {
-        val myintent = Intent(this,LocalHistory::class.java)
+        val myintent = Intent(this,ChooseHistory::class.java)
         startActivity(myintent)
     }
     fun click3(view: View) {
