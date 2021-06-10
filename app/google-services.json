@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "249232047904",
+    "firebase_url": "https://projektmobilne-992b1-default-rtdb.firebaseio.com",
+    "project_id": "projektmobilne-992b1",
+    "storage_bucket": "projektmobilne-992b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249232047904:android:dc2c9686228a1670c8e145",
+        "android_client_info": {
+          "package_name": "com.example.mobilne"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249232047904-ffkcuidt5c5snspkdgcq0b4l6hfclg12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5ukMfQNu_iDC16Ld8DavOGs2vi_XCVgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249232047904-ffkcuidt5c5snspkdgcq0b4l6hfclg12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

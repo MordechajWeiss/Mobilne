@@ -1,10 +1,17 @@
 package com.example.mobilne
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.app.ActionBar
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.GridLayout
+import android.widget.GridView
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginBottom
 import androidx.room.Room
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -15,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+
 class LocalHistory : AppCompatActivity() {
 
     private lateinit var database : SimpleXOXODatabase
@@ -24,7 +32,6 @@ class LocalHistory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_local_history)
-        val textView = findViewById<TextView>(R.id.localHistoryText)
 
         GlobalScope.launch {
             try {
@@ -52,7 +59,6 @@ class LocalHistory : AppCompatActivity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 val value = dataSnapshot.getValue<String>()
-                findViewById<TextView>(R.id.firebaseXOXOCount).text = value.toString()
                 //Log.d(TAG, "Value is: $value")
             }
 
@@ -63,19 +69,40 @@ class LocalHistory : AppCompatActivity() {
         })
 
 
+        val layout = findViewById<View>(R.id.l1) as LinearLayout
 
         for (i in 0..list.size-1){
             var s = list.get(i).board.toString()
 
-
-            textView.text = textView.text.toString() + "\n\n"
-            textView.text = textView.text.toString() + s[0] + " | " + s[1] + " | " + s[2] + "\n"
-            //textView.text = textView.text.toString() + "---------\n"
-            textView.text = textView.text.toString() + s[3] + " | " + s[4] + " | " + s[5] + "\n"
-            //textView.text = textView.text.toString() + "---------\n"
-            textView.text = textView.text.toString() + s[6] + " | " + s[7] + " | " + s[8] + "\n"
+            var newGrid = GridLayout(this)
+            println("aa")
 
 
+
+
+            //val par = newGrid.layoutParams
+            //par.width = layout.width / layout.columnCount
+            //newGrid.layoutParams = par
+            newGrid.columnCount=3;
+            newGrid.rowCount=3;
+
+
+            for(j in 0..8)
+            {
+                var iv = ImageView(this);
+                when (s[j].toString())
+                {
+                    "X" -> iv.setImageResource(R.drawable.xoxo1)
+                    "O" -> iv.setImageResource(R.drawable.xoxo2)
+                    else -> iv.setImageResource(R.drawable.xoxo3)
+                }
+                newGrid.addView(iv)
+            }
+            val params = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+            params.bottomMargin=120;
+            newGrid.layoutParams=params;
+
+            layout.addView(newGrid)
 
         }
 
