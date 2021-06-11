@@ -2,14 +2,19 @@ package com.example.mobilne
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlin.random.Random
 
 class NumberGame : AppCompatActivity() {
     private var count = 0
     private var number = 0
+    private lateinit var firebase: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +22,24 @@ class NumberGame : AppCompatActivity() {
 
         number = Random.nextInt(101);
         count=0;
+        firebase = Firebase.database.reference
+
+
+        var a1 : String
+        firebase.child("numberCount").get().addOnSuccessListener{
+            a1 = "${it.value}"
+            //a1= it.value as String
+            //findViewById<TextView>(com.google.firebase.database.R.id.textViewZ).text = (a1.toInt()+1).toString()
+            //increaseNOP(a1.toInt())
+            //postPost(findViewById<TextView>(com.google.firebase.database.R.id.inputText).text.toString(),a1.toInt())
+            //findViewById<TextView>(com.google.firebase.database.R.id.inputText).text = ""
+            a1 = (a1.toInt() + 1).toString()
+
+            firebase.child("numberCount").setValue(a1.toString())
+
+        }.addOnFailureListener{
+            Log.e("klawiatur", "Error getting data", it)
+        }
     }
 
 

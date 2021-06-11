@@ -46,6 +46,7 @@ class GamesListActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         val name = data?.getStringExtra("returnGame1")
         Toast.makeText(this,"Dostałem $name",Toast.LENGTH_SHORT).show()
+        //finish()
     }
 
 
