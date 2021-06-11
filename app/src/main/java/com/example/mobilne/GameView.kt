@@ -12,17 +12,18 @@ import android.view.SurfaceView
 class GameView(context: Context, attributeSet: AttributeSet) :
     SurfaceView(context, attributeSet), SurfaceHolder.Callback
 {
-    private val thread : GameThread
+    public val thread : GameThread
     private var ballX = 0f
     private var ballY = 0f
-    private var dx = 15f
-    private var dy = 15f
-    private val SIZE = 45f
+    private var dx = 5f
+    private var dy = 5f
+    private val SIZE = 200f
 
     init {
         holder.addCallback(this)
         thread = GameThread(holder, this)
     }
+
 
     override fun surfaceCreated(holder: SurfaceHolder) {
         thread.running = true
@@ -43,7 +44,7 @@ class GameView(context: Context, attributeSet: AttributeSet) :
         if (canvas == null) return
 
         val red = Paint().apply {
-            color = Color.RED
+            color = Color.WHITE
         }
         canvas.drawOval(ballX, ballY, ballX+SIZE, ballY+SIZE, red)
     }

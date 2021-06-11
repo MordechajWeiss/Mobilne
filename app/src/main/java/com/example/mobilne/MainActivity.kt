@@ -10,8 +10,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        //var game = findViewById<GameView>(R.id.gameView)
+        //game.surfaceCreated(game.holder)
+    }
     fun click1(view: View) {
         //Toast.makeText(this, "Games clicked", Toast.LENGTH_SHORT).show()
         val myintent = Intent(this,GamesListActivity::class.java)
@@ -24,5 +30,7 @@ class MainActivity : AppCompatActivity() {
     fun click3(view: View) {
         Toast.makeText(this, "Online clicked", Toast.LENGTH_SHORT).show()
     }
+
+
 
 }

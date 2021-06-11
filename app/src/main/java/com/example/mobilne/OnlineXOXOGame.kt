@@ -19,6 +19,7 @@ class OnlineXOXOGame : AppCompatActivity() {
     lateinit var flag: String
     lateinit var gameID: String
     lateinit var board: String
+    var boardFlags = arrayOf(0,0,0,0,0,0,0,0,0)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,117 +43,101 @@ class OnlineXOXOGame : AppCompatActivity() {
 
 
         firebase = Firebase.database.reference
-        /*
-        firebase.child("xoxoOnline").child(gameID.toString()).child("Flag").get().addOnSuccessListener{
-            flag = it.value as String
-            textview3.text = "Move: " + flag
-        }
 
-        firebase.child("xoxoOnline").child(gameID.toString()).child("1").get().addOnSuccessListener{
-            board = it.value as String
-            btn.text =  board
-        }
-        */
         val flagRef = Firebase.database.getReference("xoxoOnline").child(gameID).child("Flag")
         val boardRef = Firebase.database.getReference("xoxoOnline").child(gameID).child("1")
 
         flagRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 flag = dataSnapshot.value.toString()
                 textview3.text = "Move: " + flag
-                //findViewById<TextView>(R.id.firebaseXOXOCount).text = value.toString()
-                //Log.d(TAG, "Value is: $value")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
 
         boardRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 board = dataSnapshot.value.toString()
+                for (i in 0..8){
+                    if(board[i] != '_' && boardFlags[0] == 0){
+                        boardFlags[i] = 1;
+                    }
+                }
                 btn.text = board
-                //findViewById<TextView>(R.id.firebaseXOXOCount).text = value.toString()
-                //Log.d(TAG, "Value is: $value")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
-
-        /*for (i in 0..10){
-            firebase.child("xoxoOnline").child(gameID.toString()).child(i.toString()).get().addOnSuccessListener{
-                if(it.value!=null){
-                    textview.text = textview.text.toString() + "\n" + it.value
-                }
-
-            }.addOnFailureListener{
-                Log.e("klawiatur", "Error getting data", it)
-            }
-        }*/
-
-
-
-
 
 
 
     }
 
     fun click3_1(view: View) {
-        if(playerChar == flag){
+        if(playerChar == flag && boardFlags[0] == 0){
             board = board.replaceRange(0,1,playerChar)
-            Log.e("klawiatur", board)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_2(view: View) {
-        if(playerChar == flag){
+        if(playerChar == flag && boardFlags[1] == 0){
             board = board.replaceRange(1,2,playerChar)
-            Log.e("klawiatur", board)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_3(view: View) {
-        if(playerChar == flag){
+        if(playerChar == flag && boardFlags[2] == 0){
             board = board.replaceRange(2,3,playerChar)
-            Log.e("klawiatur", board)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_4(view: View) {
-        if(playerChar == flag){
+        if(playerChar == flag && boardFlags[3] == 0){
             board = board.replaceRange(3,4,playerChar)
-            Log.e("klawiatur", board)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_5(view: View) {
-
+        if(playerChar == flag && boardFlags[4] == 0){
+            board = board.replaceRange(4,5,playerChar)
+            firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
+            firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
+        }
     }
     fun click3_6(view: View) {
-
+        if(playerChar == flag && boardFlags[5] == 0){
+            board = board.replaceRange(3,4,playerChar)
+            firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
+            firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
+        }
     }
     fun click3_7(view: View) {
-
+        if(playerChar == flag && boardFlags[6] == 0){
+            board = board.replaceRange(5,6,playerChar)
+            firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
+            firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
+        }
     }
     fun click3_8(view: View) {
-
+        if(playerChar == flag && boardFlags[7] == 0){
+            board = board.replaceRange(6,7,playerChar)
+            firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
+            firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
+        }
     }
     fun click3_9(view: View) {
-
+        if(playerChar == flag && boardFlags[8] == 0){
+            board = board.replaceRange(7,8,playerChar)
+            firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
+            firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
+        }
     }
     fun resetClick(view: View) {
         Log.e("klawiatur", "reset clicked")

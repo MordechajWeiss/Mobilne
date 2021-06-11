@@ -1,6 +1,7 @@
 package com.example.mobilne
 
 import android.graphics.Canvas
+import android.util.Log
 import android.view.SurfaceHolder
 
 class GameThread(private val surfaceHolder: SurfaceHolder, private val gameView: GameView)
@@ -25,8 +26,12 @@ class GameThread(private val surfaceHolder: SurfaceHolder, private val gameView:
             timeMillis = (System.nanoTime() - startTime)/ 1000000
             waitTime = targetTime - timeMillis
 
-            if (waitTime >= 0)
+            if (waitTime >= 0){
                 sleep(waitTime)
+                Log.e("tags", "sleep")
+            }
+
         }
     }
+
 }
