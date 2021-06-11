@@ -37,7 +37,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/onlineButton0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -46,7 +46,7 @@
                 app:srcCompat="@drawable/xoxo3" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/onlineButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -55,7 +55,7 @@
                 app:srcCompat="@drawable/xoxo3" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/onlineButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,7 +71,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/onlineButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -80,7 +80,7 @@
                 app:srcCompat="@drawable/xoxo3" />
 
             <ImageButton
-                android:id="@+id/imageButton5"
+                android:id="@+id/onlineButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -89,7 +89,7 @@
                 app:srcCompat="@drawable/xoxo3" />
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/onlineButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -105,7 +105,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/imageButton7"
+                android:id="@+id/onlineButton6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -114,7 +114,7 @@
                 app:srcCompat="@drawable/xoxo3" />
 
             <ImageButton
-                android:id="@+id/imageButton8"
+                android:id="@+id/onlineButton7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -123,7 +123,7 @@
                 app:srcCompat="@drawable/xoxo3" />
 
             <ImageButton
-                android:id="@+id/imageButton9"
+                android:id="@+id/onlineButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobilne">
-        <activity android:name=".OnlineXOXOGame"></activity>
+        <activity android:name=".OnlineNumberGame"></activity>
+        <activity android:name=".OnlineNumberMenu" />
+        <activity android:name=".NumberGame" />
+        <activity android:name=".numberGame" />
+        <activity android:name=".OnlineXOXOGame" />
         <activity android:name=".OnlinexoxoMenu" />
         <activity android:name=".LocalHistory" />
         <activity android:name=".ChooseHistory" />

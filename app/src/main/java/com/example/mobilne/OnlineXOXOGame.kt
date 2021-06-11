@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.TextView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -57,12 +58,87 @@ class OnlineXOXOGame : AppCompatActivity() {
             }
         })
 
+        Thread.sleep(500)
         boardRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 board = dataSnapshot.value.toString()
                 for (i in 0..8){
-                    if(board[i] != '_' && boardFlags[0] == 0){
+                    if(board[i] != '_' && boardFlags[i] == 0){
                         boardFlags[i] = 1;
+                        when(i){
+                            0 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton0)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            1 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton1)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            2 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton2)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            3 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton3)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            4 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton4)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            5 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton5)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            6 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton6)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            7 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton7)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                            8 -> {
+                                var img = findViewById<ImageButton>(R.id.onlineButton8)
+                                if(flag == "X"){
+                                    img.setImageResource(R.drawable.xoxo1)
+                                }else {
+                                    img.setImageResource(R.drawable.xoxo2)
+                                }
+                            }
+                        }
                     }
                 }
                 btn.text = board
@@ -113,28 +189,28 @@ class OnlineXOXOGame : AppCompatActivity() {
     }
     fun click3_6(view: View) {
         if(playerChar == flag && boardFlags[5] == 0){
-            board = board.replaceRange(3,4,playerChar)
+            board = board.replaceRange(5,6,playerChar)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_7(view: View) {
         if(playerChar == flag && boardFlags[6] == 0){
-            board = board.replaceRange(5,6,playerChar)
+            board = board.replaceRange(6,7,playerChar)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_8(view: View) {
         if(playerChar == flag && boardFlags[7] == 0){
-            board = board.replaceRange(6,7,playerChar)
+            board = board.replaceRange(7,8,playerChar)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }
     }
     fun click3_9(view: View) {
         if(playerChar == flag && boardFlags[8] == 0){
-            board = board.replaceRange(7,8,playerChar)
+            board = board.replaceRange(8,9,playerChar)
             firebase.child("xoxoOnline").child(gameID).child("1").setValue(board)
             firebase.child("xoxoOnline").child(gameID).child("Flag").setValue(enemyChar)
         }

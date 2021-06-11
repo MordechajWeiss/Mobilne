@@ -66,13 +66,13 @@ class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : 
             holder.picView.setImageResource(R.drawable.xoxogame)
              }
             1 -> {
-                holder.picView.setImageResource(R.drawable.g1)
+                holder.picView.setImageResource(R.drawable.numberpic)
             }
             2 -> {
-                holder.picView.setImageResource(R.drawable.g2)
+                holder.picView.setImageResource(R.drawable.xoxogame)
             }
             3 -> {
-                holder.picView.setImageResource(R.drawable.g3)
+                holder.picView.setImageResource(R.drawable.numberpic)
             }
             else -> {
                 holder.picView.setImageResource(R.drawable.g0)
@@ -97,24 +97,21 @@ class CustomAdapter(private var data: Vector<GameItem>,var mContext: Context) : 
             0 ->{
                 val myintent = Intent(mContext,SimpleXOXO::class.java)
                 mContext.startActivity(myintent)
-
             }
             1 -> {
-                val myintent = Intent(mContext, GameActivity1::class.java)  //fixed error with unrecognised reference: java
-                myintent.putExtra("name1",data[id].desc)
-                //mContext.startActivity(myintent)
-                //mContext.startActivityForResult(myintent,"12")
-                //context.startAc
-                val activity = mContext as Activity
-                startActivityForResult( activity,myintent,123,null)
-
+                val myintent = Intent(mContext,NumberGame::class.java)
+                mContext.startActivity(myintent)
             }
             2 -> {
                 val myintent = Intent(mContext,OnlinexoxoMenu::class.java)
                 mContext.startActivity(myintent)
             }
             3 -> {
-                val myintent = Intent(mContext,GameActivity3::class.java)
+                //val myintent = Intent(mContext, GameActivity3::class.java)  //fixed error with unrecognised reference: java
+                //myintent.putExtra("name1",data[id].desc)
+                //val activity = mContext as Activity
+                //startActivityForResult( activity,myintent,123,null)
+                val myintent = Intent(mContext,OnlineNumberMenu::class.java)
                 mContext.startActivity(myintent)
             }
             else -> {
