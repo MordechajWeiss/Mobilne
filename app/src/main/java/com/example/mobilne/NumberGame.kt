@@ -6,15 +6,21 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.room.Room
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.sql.Types.NULL
 import kotlin.random.Random
 
 class NumberGame : AppCompatActivity() {
     private var count = 0
     private var number = 0
     private lateinit var firebase: DatabaseReference
+    private lateinit var database : NumberDatabase
+    private lateinit var newMove : NumberEnt
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +46,26 @@ class NumberGame : AppCompatActivity() {
         }.addOnFailureListener{
             Log.e("klawiatur", "Error getting data", it)
         }
+
+        GlobalScope.launch {
+            try {
+                database = Room.databaseBuilder(
+                    applicationContext,
+                    NumberDatabase::class.java,
+                    "NumberTable.db"
+                ).build()
+            }catch (e: Exception){
+                Log.d("am2021","base")
+                finish()
+            }
+            database.NumberDAO().delete()
+            database.NumberDAO().insertAll(NumberEnt(NULL,number))
+
+
+
+        }
+
+
     }
 
 
@@ -56,6 +82,21 @@ class NumberGame : AppCompatActivity() {
 
 
             var gs = Integer.parseInt(textViewInput.text.toString());
+
+
+            GlobalScope.launch {
+                try {
+                    database = Room.databaseBuilder(
+                        applicationContext,
+                        NumberDatabase::class.java,
+                        "NumberTable.db"
+                    ).build()
+                }catch (e: Exception){
+                    Log.d("am2021","base")
+                    finish()
+                }
+                database.NumberDAO().insertAll(NumberEnt(NULL,gs))
+            }
 
             if(gs != number){
                 count++;

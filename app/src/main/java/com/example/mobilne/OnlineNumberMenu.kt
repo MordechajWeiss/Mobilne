@@ -29,7 +29,7 @@ class OnlineNumberMenu : AppCompatActivity() {
             Log.i("klawiatur", "Inside $a1")
             a1 = (a1.toInt()+1).toString()
             firebase.child("numberOnline").child("counter").setValue(a1)
-            firebase.child("numberOnline").child(a1).child("1").setValue("-1")
+            firebase.child("numberOnline").child(a1).child("1").setValue("NewGame")
             firebase.child("numberOnline").child(a1).child("Flag").setValue("X")
             var number = Random.nextInt(101);
             firebase.child("numberOnline").child(a1).child("Mystery").setValue(number.toString())

@@ -18,7 +18,8 @@ class ChooseHistory : AppCompatActivity() {
     }
 
     fun click2(view: View) {
-
+        val myintent = Intent(this, LocalHistory2::class.java)
+        startActivity(myintent)
     }
 
 
