@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:paddingStart="50dp"
-    android:paddingEnd="50dp"
+
     android:paddingTop="50dp"
     android:fillViewport="true">
 
@@ -14,6 +13,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <!-- things to scroll -->

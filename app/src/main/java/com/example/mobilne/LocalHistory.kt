@@ -72,6 +72,8 @@ class LocalHistory : AppCompatActivity() {
         for (i in list.indices)
         {
             var newTV = TextView(this);
+            val par = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+            newTV.layoutParams=par;
             newTV.setTextColor(Color.WHITE);
             newTV.textSize= 24F;
             if(i%2==0)
