@@ -1,15 +1,13 @@
 package com.example.mobilne
 
 import android.app.ActionBar
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.GridLayout
-import android.widget.GridView
-import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.marginBottom
 import androidx.room.Room
@@ -71,7 +69,22 @@ class LocalHistory : AppCompatActivity() {
 
         val layout = findViewById<View>(R.id.l1) as LinearLayout
 
-        for (i in 0..list.size-1){
+        for (i in list.indices)
+        {
+            var newTV = TextView(this);
+            newTV.setTextColor(Color.WHITE);
+            newTV.textSize= 24F;
+            if(i%2==0)
+            {
+                newTV.text = "Move no."+ (i+1) +" - player X:";
+            }
+            else
+            {
+                newTV.text = "Move no."+ (i+1) +" - player O:";
+            }
+            layout.addView(newTV);
+
+
             var s = list.get(i).board.toString()
 
             var newGrid = GridLayout(this)
@@ -103,7 +116,6 @@ class LocalHistory : AppCompatActivity() {
             newGrid.layoutParams=params;
 
             layout.addView(newGrid)
-
         }
 
 
