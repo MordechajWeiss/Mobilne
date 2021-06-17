@@ -56,14 +56,14 @@ class LocalHistory2 : AppCompatActivity() {
             newTV.textSize= 36F;
             layout.addView(newTV)
 
-            for((ct, i) in (1 until list.size).withIndex())
+            for(i in (1 until list.size))
             {
                 var param = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
                 param.bottomMargin=10;
 
                 newTV = TextView(this);
                 newTV.layoutParams = param;
-                newTV.text = "Guess no."+ ct +" : " + list.get(i).move.toString();
+                newTV.text = "Guess no."+ i +" : " + list.get(i).move.toString();
                 newTV.setTextColor(Color.WHITE);
                 newTV.textSize= 32F;
                 layout.addView(newTV);
