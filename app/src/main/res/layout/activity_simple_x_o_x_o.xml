@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".SimpleXOXO">
 
     <TableLayout
@@ -124,10 +125,15 @@
 
     <Button
         android:id="@+id/btnxoOnlRest"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="sendWinner"
         android:text="Reset"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
