@@ -112,7 +112,7 @@ class NumberGame : AppCompatActivity() {
                 count++;
                 //Toast.makeText(this, "Congratulation, you guessed after " + count +  " tries!\nYou can continue game with new random number", Toast.LENGTH_SHORT).show();
                 //communicate.setText("Congratulation!\nYou guessed after " + count +  " tries.\nYou can continue game\n with new random number.");
-                textViewInfo.text = "Congratulation!\nYou guessed after " + count +  " tries.\nYou can continue game\n with new random number."
+                textViewInfo.text = "Congratulations!\nYou guessed after " + count +  " attempts.\nYou can continue the game\n with a new random number."
                 number = Random.nextInt(101);
                 count = 0;
                 //cnt.setText("Counter: " + Integer.toString(count));

@@ -93,7 +93,7 @@ class OnlineNumberGame : AppCompatActivity() {
             }else if(n.toInt() < mystery.toInt()){
                 firebase.child("numberOnline").child(gameID).child("1").setValue("More than $n")
             }else{
-                firebase.child("numberOnline").child(gameID).child("1").setValue("Player $playerChar is right, number is equal $mystery")
+                firebase.child("numberOnline").child(gameID).child("1").setValue("Player $playerChar is correct, the number is equal to $mystery")
             }
             firebase.child("numberOnline").child(gameID).child("Flag").setValue(enemyChar)
 
