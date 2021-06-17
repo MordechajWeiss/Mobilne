@@ -26,7 +26,7 @@ class OnlineData : AppCompatActivity() {
 
         firebase.child("xoxoCount").get().addOnSuccessListener{
             a1 = "${it.value}"
-            t1.text = "Local xoxo global:" + a1
+            t1.text = "Local xoxo global: " + a1
 
         }.addOnFailureListener{
             Log.e("klawiatur", "Error getting data", it)
@@ -56,6 +56,6 @@ class OnlineData : AppCompatActivity() {
             Log.e("klawiatur", "Error getting data", it)
         }
 
-        Thread.sleep(700)
+        Thread.sleep(2500)
     }
 }
