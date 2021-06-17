@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this, "Online clicked", Toast.LENGTH_SHORT).show()
     }
 
+    fun click4(view: View) {
+        val myintent = Intent(this,AutActivity::class.java)
+        startActivity(myintent)
+    }
 
 
 }

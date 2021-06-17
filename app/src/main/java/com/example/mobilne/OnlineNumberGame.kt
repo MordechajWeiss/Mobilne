@@ -23,6 +23,8 @@ class OnlineNumberGame : AppCompatActivity() {
         setContentView(R.layout.activity_online_number_game)
 
 
+
+
         gameID = intent.getStringExtra("gameid").toString()
         playerChar  = intent.getStringExtra("playerChar").toString()
         if(playerChar == "X"){
@@ -32,6 +34,8 @@ class OnlineNumberGame : AppCompatActivity() {
         }
         findViewById<TextView>(R.id.numberOnlineGameData).text = "Game id: $gameID\nYour sign: $playerChar"
         firebase = Firebase.database.reference
+
+
 
         val flagRef = Firebase.database.getReference("numberOnline").child(gameID).child("Flag")
         val boardRef = Firebase.database.getReference("numberOnline").child(gameID).child("1")
