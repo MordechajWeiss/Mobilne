@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kalam_bold"
-        android:text="Select game"
+        android:text="Logic games"
         android:textColor="@color/white"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
