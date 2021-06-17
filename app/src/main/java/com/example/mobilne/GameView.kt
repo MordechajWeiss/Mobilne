@@ -44,7 +44,7 @@ class GameView(context: Context, attributeSet: AttributeSet) :
         if (canvas == null) return
 
         val red = Paint().apply {
-            color = Color.WHITE
+            color = Color.LTGRAY
         }
         canvas.drawOval(ballX, ballY, ballX+SIZE, ballY+SIZE, red)
     }
