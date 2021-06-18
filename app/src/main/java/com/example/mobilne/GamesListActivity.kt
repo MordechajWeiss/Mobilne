@@ -31,10 +31,10 @@ class GamesListActivity : AppCompatActivity() {
     fun generateData() : Vector<GameItem>{
         var data : Vector<GameItem> = Vector();
 
-        data.addElement(GameItem(0, "xoxo local", "XOXO local"),)
-        data.addElement(GameItem(1, "number local", "Number game"),)
-        data.addElement(GameItem(2, "xoxo online", "XOXO online"),)
-        data.addElement(GameItem(3, "number online", "Number Game online"),)
+        data.addElement(GameItem(0, "XOXO local", "XOXO game with room"),)
+        data.addElement(GameItem(1, "Guess local", "Guess number game with room"),)
+        data.addElement(GameItem(2, "XOXO online", "XOXO game with Firebase"),)
+        data.addElement(GameItem(3, "Number online", "Guess number game with Firebase"),)
 
         //for (i in 4..7){
          //   data.addElement(GameItem(i, "name - $i", "Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur. $i"),)

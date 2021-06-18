@@ -14,7 +14,7 @@ class AutActivity : AppCompatActivity() {
         var img1 = findViewById<ImageView>(R.id.imageAut1)
         var img2 = findViewById<ImageView>(R.id.imageAut2)
 
-        Glide.with(this).load("https://orgonit.tk/kudłaty1.jpg").transition(DrawableTransitionOptions.withCrossFade()).into(img1);
+        Glide.with(this).load("https://orgonit.tk/kudłaty2.jpg").transition(DrawableTransitionOptions.withCrossFade()).into(img1);
         Glide.with(this).load("https://orgonit.tk/cthulu1.jpg").transition(DrawableTransitionOptions.withCrossFade()).into(img2);
     }
 }
